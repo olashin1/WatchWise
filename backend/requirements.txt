@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+psycopg2-binary
+pydantic[email]
+google-generativeai
+httpx
+python-dotenv
+python-jose[cryptography]
