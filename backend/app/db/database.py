@@ -47,3 +47,9 @@ def get_db():
         yield db
     finally:
         db.close()
+
+def connect_db():
+    Base.metadata.create_all(bind=engine)
+
+def disconnect_db():
+    engine.dispose()
