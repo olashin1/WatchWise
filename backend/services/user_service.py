@@ -13,4 +13,7 @@ def create_user(user: UserCreate, db: Session):
 
 def delete_user(user_email: str, db: Session):
     user_to_delete = db.query(User).filter_by(email=user_email).first()
-    print(user_to_delete)
+    db.delete(user_to_delete)
+    db.commit()
+    return user_to_delete
+
