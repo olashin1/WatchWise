@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from app.routers.user import router as UserRouter
+from routers.user import router as UserRouter
+from db.database import connect_db
 app = FastAPI()
-
 
 @app.get("/health")
 def health():

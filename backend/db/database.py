@@ -4,7 +4,7 @@
 # Session = what actually talks to the DB
 # Engine = what sessions use behind the scenes
 
-from base import Base
+from db.base import Base
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
 from sqlalchemy.orm import sessionmaker
 import alembic

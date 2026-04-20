@@ -1,5 +1,5 @@
-from backend.app.models.user import UserCreate
-from backend.app.db.database import get_db, User
+from models.user import UserCreate
+from db.database import User
 from sqlalchemy.orm import Session
 from fastapi import Depends
 
