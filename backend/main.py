@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from routers.user import router as UserRouter
-from db.database import connect_db
 app = FastAPI()
+
+@app.get("/")
+def default():
+    return {"message": "Hello World"}
 
 @app.get("/health")
 def health():
