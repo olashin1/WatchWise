@@ -28,4 +28,3 @@ def delete_user(user_email: str, user_password: str, db: Session):
 
     return user_to_delete
 
-
