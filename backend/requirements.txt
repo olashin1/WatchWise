@@ -7,4 +7,4 @@ pydantic[email]
 google-generativeai
 httpx
 python-dotenv
-python-jose[cryptography]
+pyjwt

@@ -1,10 +1,11 @@
-from models.user import UserCreate
+from models.user import UserModel
 from db.database import User
 from sqlalchemy.orm import Session
-from fastapi import Depends, HTTPException
+from fastapi import HTTPException
 
 
-def create_user(user: UserCreate, db: Session):
+
+def create_user(user: UserModel, db: Session):
     new_user = User(email=user.email, password=user.password)
     db.add(new_user)
     db.commit()
@@ -24,5 +25,7 @@ def delete_user(user_email: str, user_password: str, db: Session):
 
     db.delete(user_to_delete)
     db.commit()
+
     return user_to_delete
+
 
