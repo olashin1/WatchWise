@@ -6,7 +6,7 @@ from db.database import get_db
 from services.user_service import create_user, delete_user
 router = APIRouter(prefix="/user") 
 
-@router.post("/")
+@router.post("/create")
 def create(user: UserModel, db: Session = Depends(get_db)):
     return create_user(user, db)
 

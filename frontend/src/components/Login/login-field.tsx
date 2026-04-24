@@ -1,11 +1,34 @@
 import "./login-btn";
+import { useState } from "react";
 import LoginBtn from "./login-btn";
+import axios from "axios";
 
 export default function LoginField() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/auth/login", {
+        email: email,
+        password: password,
+      });
+      const token = response.data;
+      console.log(`Console: ${response.data}`);
+      localStorage.setItem("token", token);
+    } catch (err: any) {
+      console.error(err);
+    }
+  }
+
   return (
-    <div className="flex items-center justify-center bg-mist-700 w-xl h-80 shadow-lg rounded-b-2xl">
-      <form className="flex flex-col gap-5 w-80">
+    <div className="flex items-center justify-center bg-mist-700 w-xl h-80 shadow-lg rounded-2xl">
+      <form onSubmit={onSubmit} className="flex flex-col gap-5 w-80">
         <div className="flex flex-col gap-1">
+          <div className="text-center text-white font-bold rounded-2xl bg-linear-to-r from-purple-500 to-orange-500">
+            WatchWise
+          </div>
           <label className="text-sm text-gray-300" htmlFor="email">
             Email
           </label>
@@ -14,6 +37,8 @@ export default function LoginField() {
             type="text"
             name="email"
             id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
           />
         </div>
@@ -27,6 +52,8 @@ export default function LoginField() {
             type="password"
             name="password"
             id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
           />
         </div>
