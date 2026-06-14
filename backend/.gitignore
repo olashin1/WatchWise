@@ -1,0 +1,44 @@
+# ==========================================
+# WatchWise Backend GitIgnore
+# ==========================================
+
+# Environment Variables & Secrets
+.env
+.env.[a-zA-Z0-9]*
+!.env.example
+secrets.toml
+
+# Python Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+pyvenv.cfg
+
+# Python Bytecode / Caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local Databases (SQLite / App Data)
+*.db
+*.sqlite3
+app.db
+
+# OS Generated Files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Text Editor / IDE Configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

@@ -25,11 +25,11 @@ function App() {
             />
           }
         />
-        <Route path="/discover" element={<Discover />} />
+        {/* <Route path="/discover" element={<Discover />} />
         <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/history" element={<History />} />
         <Route path="/genres" element={<Genres />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/settings" element={<Settings />} /> */}
       </Routes>
     </BrowserRouter>
   );
