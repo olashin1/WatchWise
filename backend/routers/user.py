@@ -13,3 +13,7 @@ def create(user: UserModel, db: Session = Depends(get_db)):
 @router.post("/delete")
 def delete(email_to_delete: EmailStr, password: str, db: Session = Depends(get_db)):
     return delete_user(email_to_delete, password, db)
+
+@router.get("/dashboard")
+def dashboard():
+    pass

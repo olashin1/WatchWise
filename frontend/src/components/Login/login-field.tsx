@@ -1,11 +1,13 @@
 import "./login-btn";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LoginBtn from "./login-btn";
 import axios from "axios";
 
 export default function LoginField() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -14,13 +16,18 @@ export default function LoginField() {
         email: email,
         password: password,
       });
+
       const token = response.data;
       console.log(`Console: ${response.data}`);
       localStorage.setItem("token", token);
+
+      navigate("/dashboard");
     } catch (err: any) {
       console.error(err);
     }
   }
+
+  // Start UI
 
   return (
     <div className="flex items-center justify-center bg-mist-700 w-xl h-80 shadow-lg rounded-2xl">
@@ -62,4 +69,6 @@ export default function LoginField() {
       </form>
     </div>
   );
+
+  // End Component
 }

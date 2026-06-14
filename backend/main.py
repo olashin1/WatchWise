@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from routers.user import router as UserRouter
 from routers.auth import router as AuthRouter
 from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
 origins = [

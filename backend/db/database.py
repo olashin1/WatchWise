@@ -30,11 +30,12 @@ class WatchLog(Base):
 class Movie(Base):
     __tablename__ = "movie"
 
-    id     = Column(String, primary_key=True)
-    title  = Column(String)
-    rating = Column(Integer)
-    year   = Column(Integer)
-    genre  = Column(String)
+    id         = Column(String, primary_key=True)
+    title      = Column(String)
+    rating     = Column(Integer)
+    year       = Column(Integer)
+    genre      = Column(String)
+    poster_url = Column(String)
 
 db_url = "sqlite:///app.db"
 engine = create_engine(db_url)

@@ -3,7 +3,7 @@ import LoginField from "../components/Login/login-field";
 
 export default function LoginPage() {
   return (
-    <div className="grid h-screen place-content-center ">
+    <div className="grid h-screen place-content-center bg-gray-600">
       <LoginField />
     </div>
   );

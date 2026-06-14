@@ -3,8 +3,6 @@ from db.database import User
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
 
-
-
 def create_user(user: UserModel, db: Session):
     new_user = User(email=user.email, password=user.password)
     db.add(new_user)
