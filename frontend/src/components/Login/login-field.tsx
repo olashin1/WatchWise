@@ -1,29 +1,26 @@
 import "./login-btn";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginBtn from "./login-btn";
 import axios from "axios";
 
 export default function LoginField() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  // New method
+  async function login(formData: FormData) {
     try {
+      const email = formData.get("email") as string;
+      const password = formData.get("password") as string;
+
       const response = await axios.post("http://127.0.0.1:8000/auth/login", {
         email: email,
         password: password,
       });
 
       const token = response.data;
-      console.log(`Console: ${response.data}`);
       localStorage.setItem("token", token);
-
       navigate("/dashboard");
-    } catch (err: any) {
-      console.error(err);
+    } catch (err) {
+      console.error(`Error: ${err} occured.`);
     }
   }
 
@@ -31,7 +28,7 @@ export default function LoginField() {
 
   return (
     <div className="flex items-center justify-center bg-mist-700 w-xl h-80 shadow-lg rounded-2xl">
-      <form onSubmit={onSubmit} className="flex flex-col gap-5 w-80">
+      <form action={login} className="flex flex-col gap-5 w-80">
         <div className="flex flex-col gap-1">
           <div className="text-center text-white font-bold rounded-2xl bg-linear-to-r from-purple-500 to-orange-500">
             WatchWise
@@ -41,11 +38,9 @@ export default function LoginField() {
           </label>
           <input
             className="bg-mist-800 px-4 py-2 rounded-xl text-white outline-none focus:ring-2 focus:ring-purple-500 transition"
-            type="text"
+            type="email"
             name="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
           />
         </div>
@@ -59,8 +54,6 @@ export default function LoginField() {
             type="password"
             name="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             placeholder="••••••••"
           />
         </div>
