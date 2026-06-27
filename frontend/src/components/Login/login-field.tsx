@@ -2,6 +2,7 @@ import "./login-btn";
 import { useNavigate } from "react-router-dom";
 import LoginBtn from "./login-btn";
 import axios from "axios";
+import { supabase } from "../../lib/supabase";
 
 export default function LoginField() {
   const navigate = useNavigate();
@@ -11,14 +12,19 @@ export default function LoginField() {
       const email = formData.get("email") as string;
       const password = formData.get("password") as string;
 
-      const response = await axios.post("http://127.0.0.1:8000/auth/login", {
-        email: email,
-        password: password,
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
 
-      const token = response.data;
-      localStorage.setItem("token", token);
-      navigate("/dashboard");
+      if (error) {
+        console.error(`Error Occured: ${error}`);
+      }
+
+      if (data.user) {
+        console.log("Rediecting user...");
+        navigate("/dashboard");
+      }
     } catch (err) {
       console.error(`Error: ${err} occured.`);
     }
