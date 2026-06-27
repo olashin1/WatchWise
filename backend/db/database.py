@@ -1,31 +1,20 @@
-# # Port 5432
-# Engine = long-lived (per app run)
-# Session = short-lived (per operation / request)
-# Session = what actually talks to the DB
-# Engine = what sessions use behind the scenes
-
 from db.base import Base
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
 from sqlalchemy.orm import sessionmaker
-import alembic
-import psycopg2
 
+class Profile(Base):
+    __tablename__ = "profiles"
 
-class User(Base):
-    __tablename__ = "users"
-
-    id       = Column(Integer, primary_key=True)
-    email    = Column(String)
-    password = Column(String)
+    id    = Column(String, primary_key=True)  # Supabase auth user id
+    email = Column(String)
 
 class WatchLog(Base):
     __tablename__ = "watchlog"
 
     id          = Column(Integer, primary_key=True)
-    user_id     = Column(Integer, ForeignKey("users.id"))
+    user_id     = Column(String, ForeignKey("profiles.id"))
     movie_title = Column(String)
     rating      = Column(Integer)
-
 
 class Movie(Base):
     __tablename__ = "movie"
