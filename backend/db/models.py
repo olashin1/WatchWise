@@ -1,7 +1,10 @@
 from db.base import Base
-from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
-from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy import Column, Integer, String, ForeignKey, Text
+from sqlalchemy.orm import relationship
+from pgvector.sqlalchemy import Vector
+import uuid
 
+VECTOR_DIMENSION = 768
 
 class Profile(Base):
     __tablename__ = "profiles"
@@ -24,9 +27,12 @@ class WatchLog(Base):
 class Movie(Base):
     __tablename__ = "movie"
 
-    id         = Column(String, primary_key=True)
-    title      = Column(String)
-    rating     = Column(Integer)
+    id         = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    tmdb_id    = Column(Integer, unique=True, index=True)
+    title      = Column(String, nullable=False)
+    overview   = Column(Text)
     year       = Column(Integer)
-    genre      = Column(String)
+    genres     = Column(String)
     poster_url = Column(String)
+    embedding  = Column(Vector(VECTOR_DIMENSION), nullable=True)
+
