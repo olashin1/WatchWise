@@ -5,12 +5,6 @@ import LoginPage from "./pages/login-page";
 import Dashboard from "./pages/dashboard";
 import LandingPage from "./pages/landing-page";
 
-import {
-  recentlyWatched,
-  watchlist,
-  recommendations,
-} from "./mockData/mockMovies";
-
 function App() {
   return (
     <BrowserRouter>

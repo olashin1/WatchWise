@@ -1,7 +1,9 @@
 // LandingPage.tsx
 import SearchBar from "../components/Dashboard/searchbar";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-[#101014] text-[#f4efff]">
       <nav className="flex items-center justify-between px-6 py-6 md:px-12">
@@ -28,7 +30,10 @@ export default function LandingPage() {
           </p>
 
           <div className="mt-8 flex justify-center gap-4">
-            <button className="rounded-full bg-[#c58cff] px-6 py-3 font-medium text-[#101014] hover:bg-[#bda3db] transition">
+            <button
+              onClick={() => navigate("/login")}
+              className="rounded-full bg-[#c58cff] px-6 py-3 font-medium text-[#101014] hover:bg-[#bda3db] transition"
+            >
               Get Started
             </button>
 
