@@ -1,5 +1,4 @@
 // LandingPage.tsx
-import SearchBar from "../components/Dashboard/searchbar";
 import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {

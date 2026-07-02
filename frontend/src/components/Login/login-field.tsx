@@ -1,7 +1,6 @@
 import "./login-btn";
 import { useNavigate } from "react-router-dom";
 import LoginBtn from "./login-btn";
-import axios from "axios";
 import { supabase } from "../../lib/supabase";
 
 export default function LoginField() {
