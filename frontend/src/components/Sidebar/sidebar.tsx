@@ -11,7 +11,7 @@ const navItems = [
 
 export default function Sidebar() {
   return (
-    <aside className="hidden w-60 flex-col border-r border-white/10 bg-[#111117]/90 p-6 md:flex">
+    <aside className="hidden min-h-screen w-60 flex-col border-r border-white/10 bg-[#111117]/90 p-6 md:flex">
       <div className="mb-10 text-2xl tracking-[0.2em] text-[#c58cff]">
         WATCHWISE
       </div>

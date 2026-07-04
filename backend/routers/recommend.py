@@ -38,7 +38,6 @@ def search_by_mood(
             "year": movie.year,
             "genres": movie.genres,
             "poster_url": movie.poster_url,
-            "embedding": movie.embedding
         })
 
     return results
