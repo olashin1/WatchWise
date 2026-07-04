@@ -20,12 +20,11 @@ export default function MovieCard({ movie }: MovieCardProps) {
           {movie.title}
         </h3>
 
-        <div className="mt-1 flex items-center justify-between text-sm text-[#aaa3b8]">
+        <div className="mt-1 text-sm text-[#aaa3b8]">
           <span>{movie.year}</span>
-          <span className="text-[#c58cff]">★ {movie.rating}</span>
         </div>
 
-        <p className="mt-1 text-xs text-[#aaa3b8]">{movie.genre}</p>
+        <p className="mt-1 text-xs text-[#aaa3b8]">{movie.genres}</p>
       </div>
     </article>
   );

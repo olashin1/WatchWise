@@ -1,44 +1,18 @@
-# # Port 5432
-# Engine = long-lived (per app run)
-# Session = short-lived (per operation / request)
-# Session = what actually talks to the DB
-# Engine = what sessions use behind the scenes
-
-from db.base import Base
-from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import alembic
+from db.base import Base
 import psycopg2
+import os
 
+load_dotenv()
 
-class User(Base):
-    __tablename__ = "users"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-    id       = Column(Integer, primary_key=True)
-    email    = Column(String)
-    password = Column(String)
+if DATABASE_URL is None:
+    raise RuntimeError("DATABASE_URL environment variable is not set.")
 
-class WatchLog(Base):
-    __tablename__ = "watchlog"
-
-    id          = Column(Integer, primary_key=True)
-    user_id     = Column(Integer, ForeignKey("users.id"))
-    movie_title = Column(String)
-    rating      = Column(Integer)
-
-
-class Movie(Base):
-    __tablename__ = "movie"
-
-    id         = Column(String, primary_key=True)
-    title      = Column(String)
-    rating     = Column(Integer)
-    year       = Column(Integer)
-    genre      = Column(String)
-    poster_url = Column(String)
-
-db_url = "sqlite:///app.db"
-engine = create_engine(db_url)
+engine = create_engine(DATABASE_URL)
 
 SessionLocal = sessionmaker(bind=engine)
 

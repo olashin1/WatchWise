@@ -3,28 +3,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./pages/login-page";
 import LoginPage from "./pages/login-page";
 import Dashboard from "./pages/dashboard";
-
-import {
-  recentlyWatched,
-  watchlist,
-  recommendations,
-} from "./mockData/mockMovies";
+import LandingPage from "./pages/landing-page";
+import SearchPage from "./pages/search-page";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/dashboard"
-          element={
-            <Dashboard
-              recentlyWatched={recentlyWatched}
-              watchlist={watchlist}
-              recommendations={recommendations}
-            />
-          }
-        />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/search" element={<SearchPage />} />
+
         {/* <Route path="/discover" element={<Discover />} />
         <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/history" element={<History />} />

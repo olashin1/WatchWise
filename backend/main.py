@@ -1,13 +1,12 @@
 from fastapi import FastAPI
-from routers.user import router as UserRouter
-from routers.auth import router as AuthRouter
 from fastapi.middleware.cors import CORSMiddleware
+from routers import recommend
 
 app = FastAPI()
 
 origins = [
     "http://localhost:5173",
-    "http://127.0.0.1:8000"
+    "http://127.0.0.1:5173",
 ]
 
 app.add_middleware(
@@ -18,13 +17,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def default():
-    return {"message": "Hello World"}
-
 @app.get("/health")
 def health():
     return {"message": "Hello from health"}
 
-app.include_router(UserRouter)
-app.include_router(AuthRouter)
+app.include_router(recommend.router)

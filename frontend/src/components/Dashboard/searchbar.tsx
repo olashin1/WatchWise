@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const prompts = [
   "What are we feeling tonight?",
@@ -8,15 +9,20 @@ const prompts = [
   "What kind of vibe tonight?",
 ];
 
-type SearchBarProps = {
-  onSearch?: (query: string) => void;
-};
-
-export default function SearchBar({ onSearch }: SearchBarProps) {
+export default function SearchBar() {
   const placeholder = useMemo(
     () => prompts[Math.floor(Math.random() * prompts.length)],
     [],
   );
+
+  function search() {
+    if (!query.trim()) return;
+
+    navigate(`/search?query=${encodeURIComponent(query)}`);
+  }
+
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="mx-auto mt-8 flex max-w-3xl items-center gap-4 rounded-3xl border border-[#c58cff] bg-[#1f1c2a]/60 px-6 py-4 shadow-[0_0_35px_rgba(197,140,255,0.16)]">
@@ -24,9 +30,15 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
 
       <input
         type="text"
+        value={query}
         placeholder={placeholder}
-        onChange={(e) => onSearch?.(e.target.value)}
+        onChange={(e) => setQuery(e.target.value)}
         className="w-full bg-transparent text-lg text-white outline-none placeholder:text-[#c58cff]"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            search();
+          }
+        }}
       />
 
       <span className="text-2xl text-[#c58cff]">✦</span>
