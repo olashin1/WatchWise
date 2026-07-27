@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import recommend
+from routers import recommend, discover
 
 app = FastAPI()
 
@@ -22,3 +22,4 @@ def health():
     return {"message": "Hello from health"}
 
 app.include_router(recommend.router)
+app.include_router(discover.router)
