@@ -60,7 +60,7 @@ def seed_movies():
                     poster_url=poster_url,
                     genres="",  # we can improve this later
                 )
-
+                print(f"Added {new_movie.title} - Year {new_movie.year}")
                 db.add(new_movie)
 
             db.commit()

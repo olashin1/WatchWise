@@ -7,12 +7,19 @@ type MovieCardProps = {
 export default function MovieCard({ movie }: MovieCardProps) {
   return (
     <article className="group">
-      <div className="aspect-2/3 overflow-hidden rounded-2xl border border-white/10 bg-[#171720]">
+      <div className="relative aspect-2/3 overflow-hidden rounded-2xl border border-white/10 bg-[#171720]">
         <img
           src={movie.poster_url}
           alt={movie.title}
           className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
         />
+
+        {/* Overview Overlay */}
+        <div className="absolute inset-x-0 bottom-0 translate-y-full bg-linear-to-t from-black/95 via-black/90 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
+          <p className="line-clamp-6 text-xs leading-relaxed text-white">
+            {movie.overview}
+          </p>
+        </div>
       </div>
 
       <div className="mt-3">

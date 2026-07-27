@@ -1,4 +1,4 @@
 from pydantic import BaseModel
 
-class MoodSearchRequest(BaseModel):
+class RecommendRequest(BaseModel):
     query: str

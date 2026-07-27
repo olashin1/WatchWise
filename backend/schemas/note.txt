@@ -1,0 +1,4 @@
+A schema defines the shape and rules of data being passed 
+between different parts of your application. It's often used 
+for requests sent to the backend, but it can also define responses 
+sent from the backend.

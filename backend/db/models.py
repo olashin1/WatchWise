@@ -1,5 +1,5 @@
 from db.base import Base
-from sqlalchemy import Column, Integer, String, ForeignKey, Text
+from sqlalchemy import Column, Integer, String, ForeignKey, Text, Boolean
 from sqlalchemy.orm import relationship
 from pgvector.sqlalchemy import Vector
 import uuid
@@ -13,6 +13,7 @@ class Profile(Base):
     email      = Column(String)
 
     watch_logs = relationship("WatchLog", back_populates="user")
+    watch_list = relationship("WatchList", back_populates="user")
 
 class WatchLog(Base):
     __tablename__ = "watchlog"
@@ -21,8 +22,18 @@ class WatchLog(Base):
     user_id     = Column(String, ForeignKey("profiles.id"))
     movie_title = Column(String)
     rating      = Column(Integer)
-
+    poster_url  = Column(String) 
     user        = relationship("Profile", back_populates="watch_logs")
+
+class WatchList(Base):
+    __tablename__ = "watchlist"
+
+    id          = Column(Integer, primary_key=True)
+    user_id     = Column(String, ForeignKey("profiles.id"))
+    movie_title = Column(String)
+    watched     = Column(Boolean, default=False)
+
+    user = relationship("Profile", back_populates="watch_list")
 
 class Movie(Base):
     __tablename__ = "movie"

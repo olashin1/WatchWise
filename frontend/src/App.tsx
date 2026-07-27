@@ -5,6 +5,7 @@ import LoginPage from "./pages/login-page";
 import Dashboard from "./pages/dashboard";
 import LandingPage from "./pages/landing-page";
 import SearchPage from "./pages/search-page";
+import RegisterPage from "./pages/register-page";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
         {/* <Route path="/discover" element={<Discover />} />
         <Route path="/watchlist" element={<Watchlist />} />
