@@ -2,7 +2,7 @@
 
 # WatchWise
 
-**A full-stack movie discovery and tracking platform with AI-powered recommendations.**
+**A personalized movie discovery and recommendation platform driven by AI-powered taste profiling.**
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 
@@ -10,24 +10,24 @@
 
 ## 🌟 Highlights
 
-- AI-powered movie recommendations using Google's Gemini integration.
-- Integrated movie discovery and metadata fetching via TMDB API.
-- Personalized taste profile generation based on user watch history and ratings.
-- Full-featured watch management including watchlists and detailed watch logs.
-- Secure user authentication and session management powered by Supabase.
-- Modern, responsive interface built with React 19, Vite, and Tailwind CSS.
+- AI-powered recommendations utilizing Gemini for personalized taste profiling
+- Seamless authentication and session management integrated with Supabase
+- Comprehensive movie data fetching through The Movie Database (TMDB) integration
+- Interactive dashboard for managing watchlists, history, and movie discovery
+- Modern frontend stack using React 19, TypeScript, and Tailwind CSS for a responsive UI
+- Robust FastAPI backend with modular routing for discovery, logging, and recommendations
 
 ## ℹ️ Overview
 
-WatchWise is a comprehensive movie management application that allows users to build personal taste profiles, manage watchlists, and discover new content. By integrating with the TMDB API for metadata and Google's Gemini for personalized suggestions, the project provides a centralized hub for tracking watch history and finding cinema that matches individual preferences.
+WatchWise is a full-stack application that helps users manage their cinema viewing habits and discover new content. By integrating movie metadata from TMDB and leveraging AI services for taste profiling, the project provides a centralized hub for searching titles, maintaining a personal watchlist, and receiving curated recommendations based on viewing history.
 
 ## 🚀 Usage
 
-To run the project, users typically start the FastAPI backend to handle data processing and AI logic, and the Vite development server for the React frontend. Once authenticated via the Supabase-backed login, users can search for movies, add them to their watchlist, log completed viewings, and request recommendations through the dashboard.
+Users interact with the platform through a React-based web interface, starting with an authentication flow via Supabase. Once logged in, users can use the dashboard to search for films, add titles to their watchlist, or log movies they have recently watched to refine their taste profile and generate new recommendations.
 
 ## 🏗️ Architecture
 
-The project follows a decoupled client-server architecture. The frontend is a React SPA using Vite and Axios for API communication. The backend is built with FastAPI, utilizing a modular router system for discovery and recommendations. It employs an SQLite database for local storage, scripts for movie embedding, and external service integrations for authentication and movie metadata.
+The project uses a decoupled client-server architecture. The frontend is a Vite-powered React application using React Router for navigation and Axios for API communication. The backend is built with FastAPI, organized into functional routers that interface with a database layer and external services for movie metadata and AI-driven analysis.
 
 ## 🛠️ Tech Stack
 
