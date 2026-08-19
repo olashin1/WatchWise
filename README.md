@@ -2,40 +2,44 @@
 
 # WatchWise
 
-**A personalized movie discovery and recommendation platform driven by AI-powered taste profiling.**
+**A personalized movie discovery and tracking platform powered by AI recommendations.**
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+[![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)](#)
+[![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=fff)](#)
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white)](#)
 
 </div>
 
-## 🌟 Highlights
+## Highlights
 
-- AI-powered recommendations utilizing Gemini for personalized taste profiling
-- Seamless authentication and session management integrated with Supabase
-- Comprehensive movie data fetching through The Movie Database (TMDB) integration
-- Interactive dashboard for managing watchlists, history, and movie discovery
-- Modern frontend stack using React 19, TypeScript, and Tailwind CSS for a responsive UI
-- Robust FastAPI backend with modular routing for discovery, logging, and recommendations
+- AI-driven movie recommendations tailored to unique user taste profiles.
+- Seamless movie discovery and metadata integration via the TMDB API.
+- Secure user authentication and session management powered by Supabase.
+- Unified dashboard for managing active watchlists and logging viewing history.
+- Automated scripts for movie seeding and vector-based embedding generation.
 
-## ℹ️ Overview
+## Overview
 
-WatchWise is a full-stack application that helps users manage their cinema viewing habits and discover new content. By integrating movie metadata from TMDB and leveraging AI services for taste profiling, the project provides a centralized hub for searching titles, maintaining a personal watchlist, and receiving curated recommendations based on viewing history.
+WatchWise is a full-stack application designed to help users manage their cinema-watching journey. By integrating with The Movie Database (TMDB) for extensive metadata and leveraging Google Gemini for intelligent recommendation logic, the platform allows users to build personal taste profiles, maintain watchlists, and log their viewing history. It serves as a centralized hub for discovering new content tailored specifically to individual user preferences.
 
-## 🚀 Usage
+## Usage
 
-Users interact with the platform through a React-based web interface, starting with an authentication flow via Supabase. Once logged in, users can use the dashboard to search for films, add titles to their watchlist, or log movies they have recently watched to refine their taste profile and generate new recommendations.
+Users interact with the platform via a React-based web interface to search for titles, manage their movie lists, and view AI-generated suggestions. The system requires a running FastAPI backend to handle data persistence and external API communication. Developers typically start the frontend using Vite and initialize the backend database using provided Python seeding scripts.
 
-## 🏗️ Architecture
+## Architecture
 
-The project uses a decoupled client-server architecture. The frontend is a Vite-powered React application using React Router for navigation and Axios for API communication. The backend is built with FastAPI, organized into functional routers that interface with a database layer and external services for movie metadata and AI-driven analysis.
+The project uses a decoupled client-server architecture consisting of a React SPA and a FastAPI backend. The frontend utilizes React Router for navigation and Axios for API requests, with Supabase managing authentication. The Python backend is organized into domain-specific routers for recommendations and lists, supported by a service layer that interacts with the TMDB and Gemini APIs and a database layer using SQLAlchemy for SQLite persistence.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-| Category | Technologies |
-| --- | --- |
+| Category      | Technologies                   |
+| ------------- | ------------------------------ |
 | **Languages** | TypeScript, Python, JavaScript |
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 WatchWise/
